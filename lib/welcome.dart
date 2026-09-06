@@ -27,5 +27,5 @@ class WelcomeMessage extends StatelessWidget {
        );
      },
    );
- }
+   }
 }

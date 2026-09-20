@@ -48,7 +48,14 @@ class _NotesPageState extends State<NotesPage> {
      await _col.add({
        'description': text,
        'createdAt': FieldValue.serverTimestamp(),
-     });
+     }) .then(
+           (note) => Notifications.show(
+             id: note.id.hashCode,
+             title: 'Nota criada',
+             body: text,
+             payload: note.id,
+           ),
+         );
      createController.clear();
    } catch (e) {
      setState(() => message = 'Erro: $e');
